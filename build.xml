@@ -1,0 +1,14 @@
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="" default="run">
+  <!--setproxy proxyhost="" proxyport="" proxyuser="" proxypassword=""/-->
+  <target name="retrieve">
+    <ivy:retrieve/>
+  </target>
+  <target name="run" depends="retrieve">
+    <java classname="jdk.nashorn.tools.Shell" classpath="lib/*" fork="true">
+      <arg value="app.js"/>
+    </java>
+  </target>
+  <target name="clean">
+    <delete dir="lib"/>
+  </target>
+</project>
